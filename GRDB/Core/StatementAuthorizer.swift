@@ -1,6 +1,11 @@
-#if os(Linux)
+#if canImport(string_h)
+import string_h
+#elif os(Linux)
 import Glibc
+#elif os(macOS) || os(iOS) || os(watchOS) || os(tvOS) || os(visionOS)
+import Darwin
 #endif
+
 #if SWIFT_PACKAGE
 import CSQLite
 #elseif GRDBCIPHER
